@@ -42,11 +42,11 @@ fi
 SBT_OPTS="-Xms64M -Xmx256M -XX:MaxPermSize=512M"
 SBT_CMD=$@
 
-/cygdrive/c/Program\ Files/Java/jdk1.6.0_20/bin/java -ea -server ${JAVA_OPTS} ${SBT_OPTS}		\
+java -ea -server ${JAVA_OPTS} ${SBT_OPTS}		\
 	-XX:+AggressiveOpts             		\
 	-XX:+OptimizeStringConcat			\
 	-XX:+UseConcMarkSweepGC               		\
 	-XX:+CMSParallelRemarkEnabled   		\
 	-XX:+CMSClassUnloadingEnabled   		\
 	-XX:+CMSIncrementalMode         		\
-	-jar project/${sbtjar} ${SBT_CMD}
+	-jar project/${sbtjar} "${SBT_CMD}"
